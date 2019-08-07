@@ -13,6 +13,10 @@ using Microsoft.Extensions.Options;
 using Swashbuckle.AspNetCore.Swagger;
 using System.IO;
 using System.Reflection;
+using Xlearn.Repository;
+using xlearn.Models;
+using xlearn.Services;
+using Xlearn.Services;
 
 namespace xlearn.Api
 {
@@ -29,6 +33,10 @@ namespace xlearn.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddSingleton(Configuration)
+                    .AddTransient<RepositoryBase<User>, UserServices>()
+                    .AddTransient<RepositoryBase<Profile>, ProfileServices>()
+                    .AddTransient<RepositoryBase<UserProfile>, UserProfileServices>();
             // Register the Swagger generator, defining 1 or more Swagger documents
             services.AddSwaggerGen(c =>
             {

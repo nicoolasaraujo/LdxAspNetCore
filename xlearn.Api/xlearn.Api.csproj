@@ -22,4 +22,10 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="4.0.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\xlearn.Models\xlearn.Models.csproj" />
+    <ProjectReference Include="..\xlearn.Repository\xlearn.Repository.csproj" />
+    <ProjectReference Include="..\xlearn.Services\xlearn.Services.csproj" />
+  </ItemGroup>
+
 </Project>
